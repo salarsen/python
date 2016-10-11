@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Your Response</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="results">
+                <h1>Submitted Info</h1>
+                <p>
+                    Your Name: {{name}}
+                </p>
+                <p>
+                    Dojo Study Location: {{dojo_loc}}
+                </p>
+                <p>
+                    Favorite Programming Language: {{fav_lang}}
+                </p>
+                <p>
+                    Comments: {{comments}}
+                </p>
+            </div>
+            <a href="/"><button>Go Back</botton></a>
+        </div>
+    </body>
+</html>

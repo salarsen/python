@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sign up for the Dojo!</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/dojo.css')}}">
+    </head>
+    <body>
+        <div class="wrapper">
+            <img src="{{ url_for('static',filename='img/ninja.jpeg') }}" alt="Ninja Ninja" width="461">
+            <form method="POST" action="">
+                <p>
+                    <label>First Name:</label>
+                    <input type="text" id="first_name">
+                </p>
+                <p>
+                    <label>Last Name:</label>
+                    <input type="text" id="last_name">
+                </p>
+                <input type="submit" value="Submit" name="submit">
+            </form>
+        </div>
+    </body>
+</html>

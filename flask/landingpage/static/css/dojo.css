@@ -1,0 +1,15 @@
+*{
+
+}
+.wrapper{
+
+}
+    form{
+        display:inline-block;
+        width:500px;
+    }
+    img{
+        display:inline-block;
+        vertical-align: top;
+        width:461px;
+    }
