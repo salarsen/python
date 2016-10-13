@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Counter!</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='mystyle.css')}}">
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Counter</h1>
+            <p>{{session['counter']}}</p>
+            <p>
+                <a href="/ninjas"><button>Ninjas</button></a>
+            </p>
+            <p>
+                <a href="/hackers"><button>Hackers</button></a>
+            </p>
+        </div>
+    </body>
+</html>

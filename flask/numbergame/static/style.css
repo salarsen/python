@@ -1,0 +1,28 @@
+*{
+
+}
+.wrapper{
+    text-align: center;
+}
+    .redalert{
+        background-color: red;
+        color: white;
+        /*text-align:center;*/
+        width:200px;
+        display:inline-block;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        margin: 0;
+        border: 2px solid black;
+    }
+    .greenalert{
+        background-color: green;
+        color: white;
+        /*text-align:center;*/
+        width:200px;
+        display:inline-block;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        margin: 0;
+        border: 2px solid black;
+    }

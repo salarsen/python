@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+        <script   src="http://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+        <script src="{{url_for('static',filename='mypage.js')}}"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Welcome to the Great Number Game!</h1>
+            <p>I am thinking of a number between 1 and 100.</p>
+            <p>Take a guess!</p>
+            <div class="results" data-result="{{session['result']}},{{session['answer']}}">
+            </div>
+            <form action="/guess" method="POST">
+                <p><input type="number" name="guess" value="{{session['guess']}}"></p>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+    </body>
+</html>
