@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+}
+
+.wrapper{
+
+}
+    .goldcnt{
+        padding:20px 0 0 20px;
+    }
+    form{
+        display: inline-block;
+        border: 1px solid black;
+        width:200px;
+        padding:20px;
+        margin:20px;
+        text-align: center;
+    }
+
+    form p{
+        padding-top:20px;
+        padding-bottom: 20px;
+    }
+    a{
+        width:20px;
+        display: block;
+        padding-left:20px;
+        padding-top:20px;
+        text-align: center;
+    }
+    label{
+        padding:20px;
+        display: block;
+    }
+    .activities{
+        margin:20px 0 0 20px;
+        width:1100px;
+        border:1px solid black;
+        overflow-y:scroll;
+        height:100px;
+    }
+    .activities p:first-child{
+        margin:10px 0 0 10px;
+    }
+    .activities p{
+        margin-left:10px;
+    }
+    .activities p:last-child{
+        margin-bottom:10px;
+    }
+    .green{
+        color: green;
+    }
+    .red{
+        color:red;
+    }

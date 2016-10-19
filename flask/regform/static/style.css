@@ -1,0 +1,18 @@
+*{
+
+}
+    .wrapper{
+
+    }
+        .empty{
+            color:yellow;
+            background-color: black;
+        }
+        .invalid{
+            color:red;
+            background-color: black;
+        }
+        .match{
+            color:orange;
+            background-color: black;
+        }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dojo Survey!</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='main_pg.css') }}">
+    </head>
+    <body>
+        <div class="wrapper">
+            {% if session['name'] == 1 or session['comments'] == 1 or session['comments'] == -1 %}
+                <div class="alert">
+                    {% if session['name'] == 1 %}
+                        <p>Your Name cannot be empty</p>
+                    {% endif %}
+                    {% if session['comments'] == 1 %}
+                        <p>Comments cannot be empty</p>
+                    {% endif %}
+                    {% if session['comments'] == -1 %}
+                        <p>Your comments cannot be more than 120 characters</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+            <form method="POST" action="/submitted">
+                Your Name: <input type="text" name="name">
+                <p>Dojo Location:
+                    <select name="dojo_loc">
+                        <option value="Seattle" selected>Seattle</option>
+                        <option value="San Jose">San Jose</option>
+                        <option value="Middle of the Earth">Middle of the Earth</option>
+                    </select>
+                </p>
+                <p>Favorite Language:
+                    <select name="fav_lang">
+                        <option value="Python" selected>Python</option>
+                        <option value="PHP">PHP</option>
+                        <option value="C++">C++</option>
+                    </select>
+                </p>
+                <p>Comment (optional):</p>
+                <p>
+                    <textarea name="comments"></textarea>
+                </p>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+    </body>
+</html>
