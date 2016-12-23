@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Friendships</title>
+  </head>
+  <body>
+    <h1> I've got some friends? </h1>
+    <!-- { for user in users %}
+        <p>{{user.first_name}} {{user.last_name}}</p>
+    { endfor %} -->
+    <hr>
+    {% for user in users %}
+        <p>User: {{user.first_name}} {{user.last_name}}</p>
+        {% for friendship in user.usersfriend.all %}
+            {% if friendship.friend.last_name == "Hernandez" %}
+                <p><b>- Friend: {{friendship.friend.first_name}} {{friendship.friend.last_name}}</b></p>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    <hr>
+    {% for friend in friends %}
+        <p>User: {{friend.user.first_name}} {{friend.user.last_name}} ({{friend.user.id}}) - Friend: {{friend.friend.first_name}} {{friend.friend.last_name}} ({{friend.friend.id}})</p>
+    {% endfor %}
+    <!--<hr>
+    {% for friend in friends2 %}
+        <p>User: {{friend.user.first_name}} {{friend.user.last_name}} ({{friend.user.id}}) - Friend: {{friend.friend.first_name}} {{friend.friend.last_name}} ({{friend.friend.id}})</p>
+    {% endfor %}
+    <hr>
+    {% for friend in friends3 %}
+        <p>User: {{friend.user.first_name}} {{friend.user.last_name}} ({{friend.user.id}}) - Friend: {{friend.friend.first_name}} {{friend.friend.last_name}} ({{friend.friend.id}})</p>
+    {% endfor %}
+    <hr> -->
+
+  </body>
+</html>

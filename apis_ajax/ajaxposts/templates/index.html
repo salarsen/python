@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <!-- <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}"> -->
+        <script   src="http://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('form').submit(function(){
+                    $.post('/posts/create',$(this).serialize(),function(res){
+                        var htmlstr = "";
+                        for(var i = 0; i < res.length; i++){
+                            htmlstr += "<p>" + res[i].description + "</p>";
+                        }
+                        $('#posts').html(htmlstr);
+                        $('#description').val("");
+                    });
+                    return false;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <marquee>Prevent the reload!</marquee>
+            <h1>My Posts</h1>
+            <div id="posts">
+                {% for post in posts %}
+                    <p>{{post['description']}}</p>
+                {% endfor %}
+            </div>
+            <form method="POST" action="/posts/create">
+                <p><label>Add a note:</label></p>
+                <input type="text" name="description" id="description"/>
+                <input type="submit" value="Post It!" />
+            </form>
+        </div>
+    </body>
+</html>

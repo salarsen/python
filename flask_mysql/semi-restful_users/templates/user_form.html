@@ -1,0 +1,20 @@
+{% if id %}
+    <h1>Update user</h1>
+{% else %}
+    <h1>Add a new user</h1>
+{% endif %}
+<form action="/users/create" method="POST">
+    <input type="hidden" name="user_id" value="{{id}}" />
+    <p><label>First Name:</label></p>
+    <p><input type="text" name="first_name" value="{{first_name}}" /></p>
+    <p><label>Last Name:</label></p>
+    <p><input type="text" name="last_name" value="{{last_name}}" /></p>
+    <p><label>Email:</label></p>
+    <p><input type="text" name="email" value="{{email}}" /></p>
+    {% if id %}
+        <p><input type="submit" value="Update" /></p>
+    {% else %}
+        <p><input type="submit" value="Create" /></p>
+    {% endif %}
+</form>
+<a href="/">Go Back</a>

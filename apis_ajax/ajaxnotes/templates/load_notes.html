@@ -1,0 +1,19 @@
+{% if notes %}
+    {% for note in notes %}
+    <div id="note{{note['id']}}">
+        <form name="update" method="POST" action="/update">
+            <input type="hidden" name="id" value="{{note['id']}}" />
+            <p name="title">{{note['title']}}</p>
+            <!-- <input type="text" name="title" value="{{note['title']}}" /> -->
+            <p name="description">{{note['description']}}</p>
+            <!-- <input type="text" name="description" value="{{note['description']}}" /> -->
+            <input type="submit" value="submit" />
+        </form>
+        <form name="delete" method="POST" action="/delete">
+            <input type="hidden" name="id" value="{{note['id']}}" />
+            <input type="submit" value="Delete" />
+        </form>
+    </div>
+<hr>
+    {% endfor %}
+{% endif %}

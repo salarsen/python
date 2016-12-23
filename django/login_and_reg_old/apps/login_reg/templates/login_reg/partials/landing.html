@@ -1,0 +1,9 @@
+<h1>{{user}}</h1>
+{% if action == "login" %}
+    <p class="success">Succesfully logged in!</p>
+{% elif action == "register" %}
+    <p class="success">Successfully registered!</p>
+{% else %}
+    <p class="boring">Welcome back I guess...</p>
+{% endif %}
+<a href="{% url 'login_reg:logout_user' %}">Logout!</a>

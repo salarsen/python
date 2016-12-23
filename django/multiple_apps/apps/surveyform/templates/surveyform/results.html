@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Form Results</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="attempts">
+            Thanks for submitting this form! You have submitted this form {{request.session.submit_num}} times now.
+        </div>
+        <div class="contents">
+            <h3>Submitted Information:</h3>
+            <p><label>Name: </label>{{name}}</p>
+            <p><label>Location: </label>{{location}}</p>
+            <p><label>Dojo Location: </label>{{language}}</p>
+            <p><label>Comment: </label>{{comment}}</p>
+            <a href="{% url 'surveyform:index' %}">Go Back</a>
+        </div>
+    </body>
+</html>

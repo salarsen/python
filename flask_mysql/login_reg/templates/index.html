@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login and Register</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    </head>
+    <body>
+        <div class="wrapper">
+            {% if session['user_id'] %}
+                <a href="/logout"><button>Logout</button></a>
+            {% else %}
+                <!-- On error populate all fields with previous data again except password  -->
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                        <ul class="flashes">
+                            {% for category, message in messages %}
+                                <li class="{{ category }}">{{message}}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+                <form name="register" method="POST" action="/register">
+                    <p>
+                        <label>First Name: </label><input type="text" name="first_name" value="{{first_name}}"/>
+                    </p>
+                    <p>
+                        <label>Last Name: </label><input type="text" name="last_name" value="{{last_name}}"/>
+                    </p>
+                    <p>
+                        <label>Email Address: </label><input type="text"
+                        name="email_address" value="{{email_address}}"/>
+                    </p>
+                    <p>
+                        <label>Password: </label><input type="text" name="password" />
+                    </p>
+                    <p>
+                        <label>Confirm Password: </label><input type="text" name="confirm_password" />
+                    </p>
+                    <p>
+                        <input type="submit" Value="Register!"/>
+                    </p>
+                </form>
+                <hr>
+                <form name="login" method="POST" action="/login">
+                    <p>
+                        <label>Email Address: </label><input type="text" name="login_email" value="{{login_email}}" />
+                    </p>
+                    <p>
+                        <label>Password: </label><input type="text" name="login_password" />
+                    </p>
+                    <p>
+                        <input type="submit" value="Login" />
+                    </p>
+                </form>
+            {% endif %}
+        </div>
+    </body>
+</html>

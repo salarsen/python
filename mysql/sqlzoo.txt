@@ -1,0 +1,13 @@
+To compare name to capital to search for capitals containing country name need to concat the wildcards on whichever side desired since '%name%' is attempting to pass "name" as the variable
+
+SELECT name, REPLACE(capital,name,'') as ext
+FROM world
+WHERE capital LIKE concat('%',name,'%') AND capital <> name
+
+Search on character length. I.e. search of a country that has 2 o's separated by 2 characters
+SELECT name FROM world
+ WHERE name LIKE '%o__o%'
+
+search at end of string or start of string using %a for example for end or a% for start
+
+negative rounding in sql will let you round to hundreds (6766 -> 6800) for instance

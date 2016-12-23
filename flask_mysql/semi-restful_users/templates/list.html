@@ -1,0 +1,30 @@
+<h1>Users</h1>
+{% if users %}
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{user['id']}}</td>
+            <td>{{user['full_name']}}</td>
+            <td>{{user['email']}}</td>
+            <td>{{user['created_on']}}</td>
+            <td>
+                <a href="/users/{{user['id']}}">Show</a>
+                <a href="/users/{{user['id']}}/edit">Edit</a>
+                <a href="/users/{{user['id']}}/destroy">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/users/new">Add a New User</a>
+{% endif %}

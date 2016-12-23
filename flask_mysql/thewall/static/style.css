@@ -1,0 +1,65 @@
+*{
+
+}
+.wrapper{
+    width:1000px;
+    margin:20px;
+}
+    .header{
+        border-bottom: 1px solid black;
+    }
+    .header h1{
+        display:inline-block;
+    }
+    .header span{
+        display:inline-block;
+        vertical-align: super;
+        margin-left:500px;
+    }
+    .header a{
+        display:inline-block;
+
+    }
+    form{
+        margin-top:20px;
+        margin-left:50px;
+    }
+    .messages p:first-child{
+        margin-left:50px;
+        display: inline-block;
+    }
+    /*.messages p .message{
+        margin-left:100px;
+    }*/
+    form .message{
+        width:900px;
+        height:100px;
+    }
+
+    .messages p{
+        margin-left:50px;
+    }
+
+    .messages a{
+        display: inline-block;
+    }
+    .comments{
+        margin-left:100px;
+    }
+
+    .comments p:nth-child(2){
+        margin-left:50px;
+    }
+    .add_message button{
+        margin-left:775px;
+    }
+    .add_comment{
+        margin-left:100px;
+        width:800px;
+    }
+    form .comment{
+        width:800px;
+    }
+    .add_comment button{
+        margin-left: 675px;
+    }

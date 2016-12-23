@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Add a new Course!</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        <a href="{% url 'course_app:enrolled' %}">View Enrolled</a>
+        <a href="{% url 'login_reg:logout_user' %}">Logout</a>
+        <h1>Add a new Course</h1>
+        <form method="POST" action="{% url 'course_app:add_course' %}">
+            {% csrf_token %}
+            <p>
+                <label>Name:</label><input type="text" name="name" />
+            </p>
+            <p>
+                <label>Description:</label><textarea name="description"></textarea>
+            </p>
+            <p>
+                <input type="submit" value="Add" />
+            </p>
+        </form>
+        {% if courses %}
+        <hr>
+        <h1>Courses</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Description</th>
+                    <th>Date Added</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for course in courses %}
+                <tr>
+                    <td>{{course.name}}</td>
+                    <td>{{course.description}}</td>
+                    <td>{{course.created_at}}</td>
+                    <td><a href="{% url 'course_app:destroy_course' id=course.id %}">Remove</a></td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Is It Raining?</title>
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <script   src="http://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('form').submit(function(){
+                    var html_str = "";
+                    var location = $("#location").val();
+                    var url = "http://api.openweathermap.org/data/2.5/weather?q=" + location + "\&&appid=c2f9ececdf92a65b3a791c45a2467bc9";
+                    console.log(url);
+                    $.get(url, function(results){
+                        console.log(results);
+                        html_str += "<p><label>Temperature: </label>" + Math.round(results.main["temp"] * (9/5) - 459.67,2) + " F</p>";
+                        $('#results').html(html_str);
+                    }, 'json');
+                    return false;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <form class="location_form" action="#" method="POST">
+                <input type="text" id="location" placeholder="Location..." />
+                <input type="submit" value="Search Weather" />
+            </form>
+            <div id="results">
+
+            </div>
+        </div>
+    </body>
+</html>

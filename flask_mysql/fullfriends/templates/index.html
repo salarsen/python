@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Full Friends</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    </head>
+    <body>
+        <div class="wrapper">
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{message}}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            <form name="add_friend" method="POST" action="/friends">
+                <p>
+                    <label>First Name: </label><input type="text" name="first_name" placeholder="Your friends first name..." />
+                </p>
+                <p>
+                    <label>Last Name: </label><input type="text" name="last_name" placeholder="Your friends last name..." />
+                </p>
+                <p>
+                    <label>Email Address: </label><input type="text" name="email_address" placeholder="YourEmail@email.com" />
+                </p>
+                <p>
+                    <input type="submit" value="Add Friend">
+                </p>
+            </form>
+            {% if friends_info %}
+            <hr>
+            <h1>Your Friends:</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Friend Name</th>
+                        <th>Email Address</th>
+                        <th>Added On</th>
+                        <th>Last Updated</th>
+                        <th>Edit Friend</th>
+                        <th>Remove Friend</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for friend in friends_info %}
+                    <tr>
+                        <td>{{ friend['friend_name']}}</td>
+                        <td>{{ friend['email_address']}}</td>
+                        <td>{{ friend['created_date']}}</td>
+                        <td>{{ friend['updated_date']}}</td>
+                        <td>
+                            <a href="/friends/{{friend['id']}}/edit"><button>Edit Friend</button></a>
+                        </td>
+                        <td>
+                            <a href="/friends/{{friend['id']}}/delete"><button>Remove Friend</button></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+    </body>
+</html>

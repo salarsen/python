@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Email Validation</title>
+        <!-- <link rel="stylesheet" href="style.css"> -->
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- For error messages on form submit -->
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for category, message in messages %}
+                            <li class="{{ category }}">{{message}}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+
+            <form name="add_email" method="POST" action="/add_email">
+                <p>
+                    <label>Email Address:</label><input type="text" name="email_address" placeholder="YourEmail@email.com" />
+                </p>
+                <p>
+                    <input type="submit" value="Submit" />
+                </p>
+            </form>
+
+            {% if valid_emails %}
+                <hr>
+                <h1>Email Addresses Entered:</h1>
+                <table>
+                    <tbody>
+                    {% for emails in valid_emails %}
+                        <tr>
+                            <td>{{ emails['email'] }}</td>
+                            <td>{{ emails['created_date'] }}</td>
+                            <td>
+                                <form method="POST" action="/remove/{{emails['id']}}">
+                                    <input type="submit" value="Remove Email" />
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </body>
+</html>

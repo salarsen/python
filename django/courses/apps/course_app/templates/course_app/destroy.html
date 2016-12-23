@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Delete a Course</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h3>Are you sure you want to delete the following course?</h3>
+        {% if course %}
+        <p><label>Name: </label>{{course.name}}</p>
+        <p><label>Description: </label>{{course.description}}</p>
+        <p><a href="/">No</a></p>
+        <p><a href="/courses/delete/{{course.id}}">Yes! I want to delete this!</a></p>
+        {% endif %}
+    </body>
+</html>

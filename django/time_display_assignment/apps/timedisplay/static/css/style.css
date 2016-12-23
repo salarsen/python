@@ -1,0 +1,12 @@
+*{
+    text-align: center;
+
+}
+.header{
+    margin: 20px;
+    border: 1px solid black;
+}
+.body{
+    margin: 20px;
+    border: 1px solid black;
+}

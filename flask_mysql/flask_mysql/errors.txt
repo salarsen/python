@@ -1,0 +1,31 @@
+config = {
+    'host': 'localhost',
+    'database': db, # we got db as an argument
+    'user': 'root',
+    'password': 'root',
+    'port': '3306' # change the port to match the port your SQL server is running on
+}
+
+change localhost to something else like "mynameisbob" will return
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (2005, "Un
+known MySQL server host 'bob' (0)")
+
+changed database to something that does not exist
+'database': bob, # we got db as an argument
+NameError: global name 'bob' is not defined
+
+user that does not have access, using a password, password will be no if password is not set
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1045, "Ac
+cess denied for user 'bob'@'localhost' (using password: YES)")
+
+username correct, password incorrect
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1045, "Ac
+cess denied for user 'root'@'localhost' (using password: YES)")
+
+username correct, password empty
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (1045, "Ac
+cess denied for user 'root'@'localhost' (using password: NO)")
+
+incorrect port #
+sqlalchemy.exc.OperationalError: (_mysql_exceptions.OperationalError) (2003, "Ca
+n't connect to MySQL server on 'localhost' (10061)")
